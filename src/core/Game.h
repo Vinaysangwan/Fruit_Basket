@@ -1,7 +1,5 @@
 #pragma once
 
-#include "../common.h"
-#include "../GameManager.h"
 #include "../screens/Home.h"
 #include "../screens/Play.h"
 
@@ -9,6 +7,7 @@ class Game
 {
 private:
     // Private Functions
+    void init_Variables();
     void init_Window();
     void init_Screens();
 
@@ -28,6 +27,9 @@ public:
 
 private:
     // Private Members
+
+    // Time
+    float delta_time;
 
     // Screens
     Home *home;

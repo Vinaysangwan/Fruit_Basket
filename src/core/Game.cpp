@@ -1,5 +1,15 @@
 #include "Game.h"
 
+// ###########################################################################
+//                          Private Funcitons
+// ###########################################################################
+// Initialize Variables
+void Game::init_Variables()
+{
+    delta_time = 0.0f;
+}
+
+// Initialize Window
 void Game::init_Window()
 {
     InitWindow(window_width, window_height, "Fruit Basket");
@@ -7,6 +17,7 @@ void Game::init_Window()
     SetExitKey(KEY_NULL);
 }
 
+// Initialize Screens
 void Game::init_Screens()
 {
     // Home Screen
@@ -16,12 +27,18 @@ void Game::init_Screens()
     play = new Play();
 }
 
+// ###########################################################################
+//                          Constructor & Destructor
+// ###########################################################################
+// Constructor
 Game::Game()
 {
+    init_Variables();
     init_Window();
     init_Screens();
 }
 
+// Destructor
 Game::~Game()
 {
     delete home;
@@ -30,8 +47,14 @@ Game::~Game()
     CloseWindow();
 }
 
+// ###########################################################################
+//                            Main Game Functions
+// ###########################################################################
+// Update Function of the Game
 void Game::update_Game()
 {
+    delta_time = GetFrameTime();
+
     switch (e_Screen)
     {
     case home_screen:
@@ -39,7 +62,7 @@ void Game::update_Game()
         break;
 
     case play_screen:
-        play->update_Play();
+        play->update_Play(delta_time);
         break;
 
     case quit_screen:
@@ -47,9 +70,10 @@ void Game::update_Game()
     }
 }
 
+// Draw Funciton of the game
 void Game::draw_Game()
 {
-    ClearBackground(WHITE);
+    ClearBackground(BLACK);
 
     switch (e_Screen)
     {
@@ -66,6 +90,10 @@ void Game::draw_Game()
     }
 }
 
+// ###########################################################################
+//                              Return Functions
+// ###########################################################################
+// Reutrn the Game Window Running Status
 bool Game::is_Running()
 {
     if (!WindowShouldClose())

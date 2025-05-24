@@ -13,3 +13,5 @@ extern Mode e_Screen;
 
 extern const int window_width;
 extern const int window_height;
+
+extern const int entity_speed;
