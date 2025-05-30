@@ -19,6 +19,7 @@ public:
     ~Home();
 
     // Main Home Functions
+    void ready();
     void update_Home();
     void draw_Home();
 

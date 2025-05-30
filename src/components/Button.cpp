@@ -5,15 +5,15 @@ void Button::init_button()
     button.height = button_size.y;
     button.width = button_size.x;
 
-    button.x = button_position.x - button_size.x / 2;
-    button.y = button_position.y - button_size.y / 2;
+    button.x = MathHelper::get_Center(button_position.x, button_size.x);
+    button.y = MathHelper::get_Center(button_position.y, button_size.y);
 
     current_color = idle_color;
 
     // Text Position
     int text_width = MeasureText(button_text, font_size);
-    text_pos_x = button_position.x - text_width / 2;
-    text_pos_y = button_position.y - font_size / 2;
+    text_pos_x = MathHelper::get_Center(button_position.x, text_width);
+    text_pos_y = MathHelper::get_Center(button_position.y, font_size);
 }
 
 Button::Button(Vector2 button_size, Vector2 button_position, const char *button_text, int font_size, Color text_color, Color idle_color, Color hover_color, Color active_color)

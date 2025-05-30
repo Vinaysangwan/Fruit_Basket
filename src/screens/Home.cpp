@@ -33,6 +33,10 @@ Home::~Home()
     delete quit_button;
 }
 
+void Home::ready()
+{
+}
+
 void Home::update_Home()
 {
     change_Screen();

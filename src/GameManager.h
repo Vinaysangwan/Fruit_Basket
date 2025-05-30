@@ -10,8 +10,13 @@ enum Mode
 };
 
 extern Mode e_Screen;
+extern Mode e_Previous_Screen;
+
+extern bool screen_change;
 
 extern const int window_width;
 extern const int window_height;
 
 extern const int entity_speed;
+
+extern int score;

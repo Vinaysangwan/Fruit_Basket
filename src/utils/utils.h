@@ -32,4 +32,8 @@ namespace MathHelper
             return value;
         }
     }
+
+    float get_Center(float position, float size);
+
+    Vector2 get_CenterV(Vector2 position, Vector2 size);
 }

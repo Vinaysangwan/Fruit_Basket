@@ -31,6 +31,9 @@ private:
     // Time
     float delta_time;
 
+    // Window Icon
+    Image window_icon;
+
     // Screens
     Home *home;
     Play *play;

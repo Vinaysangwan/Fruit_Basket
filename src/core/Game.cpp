@@ -6,13 +6,22 @@
 // Initialize Variables
 void Game::init_Variables()
 {
+    InitAudioDevice();
+
+    // Delta Time
     delta_time = 0.0f;
+
+    // Window Icon
 }
 
 // Initialize Window
 void Game::init_Window()
 {
     InitWindow(window_width, window_height, "Fruit Basket");
+
+    // Set Window Icon
+    window_icon = LoadImage("assets/icon.png");
+    SetWindowIcon(window_icon);
 
     SetExitKey(KEY_NULL);
 }
@@ -44,6 +53,9 @@ Game::~Game()
     delete home;
     delete play;
 
+    UnloadImage(window_icon);
+
+    CloseAudioDevice();
     CloseWindow();
 }
 
@@ -55,6 +67,26 @@ void Game::update_Game()
 {
     delta_time = GetFrameTime();
 
+    // Call Ready Function
+    if (screen_change)
+    {
+        switch (e_Screen)
+        {
+        case home_screen:
+            home->ready();
+            break;
+
+        case play_screen:
+            play->ready();
+            break;
+
+        case quit_screen:
+            break;
+        }
+        screen_change = false;
+    }
+
+    // Call Update Function
     switch (e_Screen)
     {
     case home_screen:
@@ -67,6 +99,12 @@ void Game::update_Game()
 
     case quit_screen:
         break;
+    }
+
+    if (e_Screen != e_Previous_Screen)
+    {
+        screen_change = true;
+        e_Previous_Screen = e_Screen;
     }
 }
 

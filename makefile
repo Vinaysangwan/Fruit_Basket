@@ -14,7 +14,7 @@ SRCS = $(wildcard $(SRC_DIR)/**/*.cpp $(SRC_DIR)/*.cpp)
 OBJS = $(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRCS))
 
 # Executable
-EXE = main.exe
+EXE = Fruit_Basket.exe
 
 # Target
 all: $(EXE) run
