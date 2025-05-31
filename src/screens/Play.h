@@ -39,6 +39,9 @@ private:
     // Score
     std::string score_text;
 
+    // Background Image
+    Texture2D play_background;
+
     // Sound
     Sound collection_sound;
     Sound score_loss_sound;

@@ -37,3 +37,10 @@ namespace MathHelper
 
     Vector2 get_CenterV(Vector2 position, Vector2 size);
 }
+
+namespace Conversion
+{
+    Color hex_RGB(const std::string &hex_value);
+
+    Color hexa_RGBA(const std::string &hexa_value);
+}

@@ -7,6 +7,11 @@ void Play::init_Variables()
 
     // Collection Sound
     collection_sound = LoadSound("assets/sounds/fruit_collection.mp3");
+
+    // Play Background
+    play_background = LoadTexture("assets/Play_Screen.png");
+    play_background.height = window_height;
+    play_background.width = window_width;
 }
 
 void Play::init_Entities()
@@ -64,6 +69,7 @@ Play::Play()
 Play::~Play()
 {
     UnloadTexture(fruit_texture);
+    UnloadTexture(play_background);
     UnloadSound(score_loss_sound);
     UnloadSound(collection_sound);
 
@@ -100,6 +106,8 @@ void Play::update_Play(float delta_time)
 
 void Play::draw_Play()
 {
+    DrawTexture(play_background, 0, 0, WHITE);
+
     for (auto &fruit : *fruits)
     {
         fruit.draw_Fruit();

@@ -7,6 +7,7 @@ class Home
 {
 private:
     // Private Functions
+    void init_Variables();
     void init_Buttons();
 
     void change_Screen();
@@ -25,6 +26,9 @@ public:
 
 private:
     // Private Members
+
+    // Background Image
+    Texture2D home_background;
 
     // Buttons
     Button *play_button;

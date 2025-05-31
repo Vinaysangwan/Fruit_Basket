@@ -6,7 +6,7 @@ void Fruit::init_Variables(Sound &score_loss_sound)
     texture_path = "assets/fruits.png";
 
     // Fruit Scale
-    fruit_scale = Vector2(2.0f, 2.0f);
+    fruit_scale = Vector2(3.0f, 3.0f);
 
     // Fruit Size
     fruit_size = Vector2(16.0f * fruit_scale.x, 16.0f * fruit_scale.y);
@@ -38,13 +38,11 @@ void Fruit::init_Variables(Sound &score_loss_sound)
 void Fruit::init_Texture(Texture2D &fruit_texture)
 {
     this->fruit_texture = fruit_texture;
-    this->fruit_texture.width = fruit_size.x * 3;
-    this->fruit_texture.height = fruit_size.y * 4;
 }
 
 void Fruit::random_Fruit()
 {
-    fruit_texture_rect = Rectangle(std::rand() % 4 * fruit_size.x, std::rand() % 3 * fruit_size.y, fruit_size.x, fruit_size.y);
+    fruit_texture_rect = Rectangle(std::rand() % 10 * fruit_size.x, std::rand() % 3 * fruit_size.y, fruit_size.x, fruit_size.y);
 }
 
 void Fruit::random_Position()

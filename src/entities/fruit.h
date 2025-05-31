@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string.h>
 #include <cstdlib>
 
 #include "../common.h"
