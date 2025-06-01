@@ -11,7 +11,9 @@ void Game::init_Variables()
     // Delta Time
     delta_time = 0.0f;
 
-    // Window Icon
+    // background Music
+    bg_music = LoadMusicStream("assets/sounds/bg_music.mp3");
+    PlayMusicStream(bg_music);
 }
 
 // Initialize Window
@@ -54,6 +56,7 @@ Game::~Game()
     delete play;
 
     UnloadImage(window_icon);
+    UnloadMusicStream(bg_music);
 
     CloseAudioDevice();
     CloseWindow();
@@ -66,6 +69,7 @@ Game::~Game()
 void Game::update_Game()
 {
     delta_time = GetFrameTime();
+    UpdateMusicStream(bg_music);
 
     // Call Ready Function
     if (screen_change)

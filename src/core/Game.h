@@ -34,6 +34,9 @@ private:
     // Window Icon
     Image window_icon;
 
+    // Background Music
+    Music bg_music;
+
     // Screens
     Home *home;
     Play *play;
